@@ -1,4 +1,3 @@
-
 'use strict';
 
 import faker from 'faker';

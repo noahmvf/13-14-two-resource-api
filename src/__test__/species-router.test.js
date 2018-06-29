@@ -5,7 +5,7 @@ import faker from 'faker';
 import { startServer, stopServer } from '../lib/server';
 import Clade from '../model/clade';
 import Species from '../model/species';
-import createMockDataPromise from './lib/speciesMock';
+import createMockDataPromise from './mocks/speciesMock';
 
 const apiUrl = `http://localhost:${process.env.PORT}/api/species`;
 

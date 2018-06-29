@@ -4,7 +4,7 @@ import superagent from 'superagent';
 import faker from 'faker';
 import { startServer, stopServer } from '../lib/server';
 import Clade from '../model/clade';
-import createMockCladePromise from './lib/cladeMock';
+import createMockCladePromise from './mocks/cladeMock';
 
 const apiUrl = `http://localhost:${process.env.PORT}/api/clades`;
 

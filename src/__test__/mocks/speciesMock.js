@@ -1,3 +1,5 @@
+'use strict';
+
 import faker from 'faker';
 import Species from '../../model/species';
 import cladeMockPromise from './cladeMock';
