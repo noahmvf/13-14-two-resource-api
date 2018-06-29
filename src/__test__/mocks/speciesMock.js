@@ -12,8 +12,9 @@ export default () => {
     })
     .then(() => {
       const mockSpecies = {
-        first: faker.name.firstName(),
-        last: faker.name.lastName(),
+        name: faker.lorem.words(1),
+        scientific: faker.lorem.words(2),
+        diet: faker.lorem.words(1),
         cladeId: mockData.clade._id,
       };
       return new Species(mockSpecies).save();

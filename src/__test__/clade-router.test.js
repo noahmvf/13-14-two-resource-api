@@ -12,10 +12,10 @@ beforeAll(startServer);
 afterAll(stopServer);
 afterEach(() => Clade.remove({}));
 
-describe('POST /api/clades', () => {
+describe('POST /api/clade', () => {
   const mockResource = {
-    name: faker.name.firstName(),
-    teacher: 'Vinicio',
+    name: faker.lorem.words(1),
+    species: faker.lorem.words(1),
   };
 
   test('200 POST for successful post of a clade', () => {
@@ -24,7 +24,7 @@ describe('POST /api/clades', () => {
       .then((response) => {
         expect(response.status).toEqual(200);
         expect(response.body.name).toEqual(mockResource.name);
-        expect(response.body.teacher).toEqual(mockResource.teacher);
+        expect(response.body.species).toEqual(mockResource.species);
         expect(response.body._id).toBeTruthy();
       })
       .catch((err) => {
@@ -44,7 +44,7 @@ describe('GET /api/clades', () => {
       .then((response) => {
         expect(response.status).toEqual(200);
         expect(response.body.name).toEqual(returnedClade.name);
-        expect(response.body.teacher).toEqual(returnedClade.teacher);
+        expect(response.body.species).toEqual(returnedClade.species);
       })
       .catch((err) => {
         throw err;

@@ -25,7 +25,7 @@ export default mongoose.model('species', speciesSchema, 'species', skipInit);
 const speciesPreHook = (done) => {
   return Clade.findById(this.cladeId)
     .then((foundClade) => {
-      foundClade.students.push(this._id);
+      foundClade.species.push(this._id);
       return foundClade.save();
     })
     .then(() => done()) // done without any arguments means success

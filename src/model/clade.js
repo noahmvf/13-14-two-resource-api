@@ -17,9 +17,9 @@ const cladesSchema = mongoose.Schema({
 }, { timestamps: true }); //  creates new createdOn and new updated
 
 cladesSchema.pre('findOne', function preHookCallback(done) {
-  this.populate('students');
+  this.populate('species');
   done();
 });
 
 const skipInit = process.env.NODE_ENV === 'development';
-export default mongoose.model('clades', cladesSchema, 'clades', skipInit);
+export default mongoose.model('clade', cladesSchema, 'clade', skipInit);
