@@ -15,7 +15,9 @@ speciesRouter.post('/api/species', (request, response, next) => {
     })
     .then((newSpecies) => {
       logger.log(logger.INFO, `SPECIES ROUTER: POST AFTER SAVE: ${JSON.stringify(newSpecies)}`);
-    });
+      response.json(newSpecies);
+    })
+    .catch(next);
 });
 
 speciesRouter.get('api/species/:id?', (request, response, next) => {
@@ -23,5 +25,16 @@ speciesRouter.get('api/species/:id?', (request, response, next) => {
     return next(new HttpErrors(400, 'Did not enter an ID'));
   }
   
-  Species.init() ///////////////////////
-})
+  Species.init()
+    .then(() => {
+      return Species.findOne({ _id: request.params.id });
+    })
+    .then((foundSpecies) => {
+      logger.log(logger.INFO, `SPECIES ROUTER: AFTER GETTING SPECIES ${JSON.stringify(foundSpecies)}`);
+      return response.json(foundSpecies);
+    })
+    .catch(next);
+  return undefined;
+});
+
+export default speciesRouter;
