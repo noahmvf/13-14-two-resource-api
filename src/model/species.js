@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Clade from './clades';
+import Clade from './clade';
 
 const speciesSchema = mongoose.Schema({
   name: {
